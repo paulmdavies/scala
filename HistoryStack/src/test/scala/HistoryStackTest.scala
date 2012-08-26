@@ -65,4 +65,21 @@ class HistoryStackTest extends FunSuite
         assert( hs.contents === ArrayBuffer[Int]() )
         assert( hs.size === 0 )
     }
+    
+    test( "Stack Push Override Test" )
+    {
+        var hs = new HistoryStack[Int]
+        hs push 0
+        hs push 1
+        hs push 2
+        
+        hs.back
+        hs.back
+        
+        hs push 4
+        
+        assert( hs.size === 2 )
+        assert( hs.contents === ArrayBuffer( 0, 4 ) )
+        assert( !hs.forwardAvailable() )
+    }
 }
