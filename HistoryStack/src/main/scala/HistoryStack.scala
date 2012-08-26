@@ -59,7 +59,7 @@ class HistoryStack[T] {
      /**
       * Resets the stack, deleting all items of history
       */
-     def reset()
+     def clear()
      {
          stack.clear
          pointer = -1

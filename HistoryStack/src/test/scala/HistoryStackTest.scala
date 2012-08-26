@@ -29,21 +29,40 @@ class HistoryStackTest extends FunSuite
         // move back => 1
         assert( hs.backAvailable )
         assert( !hs.forwardAvailable )
-        assert( hs.back == 1 )
+        assert( hs.back === 1 )
         
         // move back => 0
         assert( hs.backAvailable )
         assert( hs.forwardAvailable )
-        assert( hs.back == 0 )
+        assert( hs.back === 0 )
         
         // move forward => 1 
         assert( !hs.backAvailable )
         assert( hs.forwardAvailable )
-        assert( hs.forward == 1 )
+        assert( hs.forward === 1 )
         
         // move forward => 2 
         assert( hs.backAvailable )
         assert( hs.forwardAvailable )
-        assert( hs.forward == 2 )
+        assert( hs.forward === 2 )
+    }
+    
+    test( "Stack Empty Test" )
+    {
+        var hs = new HistoryStack[Int]
+        assert( hs.contents === ArrayBuffer[Int]() )
+        assert( hs.size === 0 )
+    }
+    
+    test( "Stack Clear Test" )
+    {
+        var hs = new HistoryStack[Int]
+        hs push 0
+        hs push 1
+        hs push 2
+        
+        hs.clear
+        assert( hs.contents === ArrayBuffer[Int]() )
+        assert( hs.size === 0 )
     }
 }
