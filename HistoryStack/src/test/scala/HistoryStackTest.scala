@@ -64,6 +64,8 @@ class HistoryStackTest extends FunSuite
         hs.clear
         assert( hs.contents === ArrayBuffer[Int]() )
         assert( hs.size === 0 )
+        assert( !hs.forwardAvailable )
+        assert( !hs.backAvailable )
     }
     
     test( "Stack Push Override Test" )
@@ -80,6 +82,7 @@ class HistoryStackTest extends FunSuite
         
         assert( hs.size === 2 )
         assert( hs.contents === ArrayBuffer( 0, 4 ) )
-        assert( !hs.forwardAvailable() )
+        assert( !hs.forwardAvailable )
+        assert( hs.backAvailable )
     }
 }
