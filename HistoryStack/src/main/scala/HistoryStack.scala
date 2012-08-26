@@ -77,8 +77,3 @@ class HistoryStack[T] {
       */
      def size() = stack.size
 }
-
-object HistoryStack
-{
-    def main( args : Array[String] ) = println( "HistoryStack running..." )
-}
